@@ -169,30 +169,31 @@
     <div class="main-container">
         <div class="sidebar">
             <div class="sidebar-title">导 航</div>
-            <a href="welcome.html" class="nav-item active" target="content-frame" onclick="setActive(this)">
+            <div class="nav-item active" data-page="welcome.html" onclick="navigateTo(this, 'welcome.html')">
                 <span class="icon">📖</span>学习方法
-            </a>
-            <a href="tuiyan_tree.html" class="nav-item" target="content-frame" onclick="setActive(this)">
+            </div>
+            <div class="nav-item" data-page="tuiyan_tree.html" onclick="navigateTo(this, 'tuiyan_tree.html')">
                 <span class="icon">🌿</span>推演图
-            </a>
-            <a href="branch_tree.html" class="nav-item" target="content-frame" onclick="setActive(this)">
+            </div>
+            <div class="nav-item" data-page="branch_tree.html" onclick="navigateTo(this, 'branch_tree.html')">
                 <span class="icon">🎋</span>枝干图
-            </a>
+            </div>
         </div>
 
         <div class="content">
             <div class="ink-decoration top-left"></div>
             <div class="ink-decoration bottom-right"></div>
-            <iframe name="content-frame" src="welcome.html"></iframe>
+            <iframe id="content-frame" name="content-frame" src="welcome.html"></iframe>
         </div>
     </div>
 
     <script>
-        function setActive(element) {
+        function navigateTo(element, page) {
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
             element.classList.add('active');
+            document.getElementById('content-frame').src = page;
         }
     </script>
 </body>
