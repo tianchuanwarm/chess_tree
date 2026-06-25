@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局树推演</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "楷体", "KaiTi", "STKaiti", "宋体", serif;
+            background: #f5f0e8;
+            background-image: 
+                radial-gradient(ellipse at 20% 80%, rgba(139, 119, 101, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(100, 80, 60, 0.06) 0%, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c2c2c 0%, #3d3d3d 50%, #2c2c2c 100%);
+            color: #f0ebe0;
+            padding: 18px 40px;
+            text-align: center;
+            border-bottom: 3px solid #5a4a3a;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b7355, transparent);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: normal;
+            letter-spacing: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            margin-top: 6px;
+            opacity: 0.7;
+            letter-spacing: 4px;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: #e8e0d4;
+            border-right: 2px solid #c4b8a8;
+            padding: 20px 0;
+            overflow-y: auto;
+        }
+
+        .sidebar-title {
+            padding: 0 20px 12px;
+            font-size: 16px;
+            color: #4a3f35;
+            border-bottom: 1px solid #c4b8a8;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 14px 24px;
+            color: #4a3f35;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: #d4c8b8;
+            color: #2c241c;
+            border-left-color: #8b7355;
+        }
+
+        .nav-item.active {
+            background: #c9bdad;
+            color: #2c241c;
+            border-left-color: #5a4a3a;
+            font-weight: bold;
+        }
+
+        .nav-item .icon {
+            margin-right: 10px;
+            opacity: 0.8;
+        }
+
+        .content {
+            flex: 1;
+            position: relative;
+            background: #f5f0e8;
+        }
+
+        .content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .ink-decoration {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.08;
+        }
+
+        .ink-decoration.top-left {
+            top: 60px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #2c2c2c 0%, transparent 70%);
+        }
+
+        .ink-decoration.bottom-right {
+            bottom: 20px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #3d3d3d 0%, transparent 70%);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 20px;
+                letter-spacing: 4px;
+            }
+            .sidebar {
+                width: 160px;
+            }
+            .nav-item {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>布 局 树 推 演</h1>
+        <div class="subtitle">—— 水墨之间，棋理自现 ——</div>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="sidebar-title">导 航</div>
+            <a href="welcome.html" class="nav-item active" target="content-frame" onclick="setActive(this)">
+                <span class="icon">📖</span>学习方法
+            </a>
+            <a href="tuiyan_tree.html" class="nav-item" target="content-frame" onclick="setActive(this)">
+                <span class="icon">🌿</span>推演图
+            </a>
+            <a href="branch_tree.html" class="nav-item" target="content-frame" onclick="setActive(this)">
+                <span class="icon">🎋</span>枝干图
+            </a>
+        </div>
+
+        <div class="content">
+            <div class="ink-decoration top-left"></div>
+            <div class="ink-decoration bottom-right"></div>
+            <iframe name="content-frame" src="welcome.html"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function setActive(element) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
