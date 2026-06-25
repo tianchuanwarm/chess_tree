@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>布局树介绍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+    <title>学习方法</title>
     <style>
         html, body {
             height: 100%;
@@ -17,7 +17,7 @@
             background-image: 
                 radial-gradient(ellipse at 20% 80%, rgba(139, 119, 101, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(100, 80, 60, 0.06) 0%, transparent 50%);
-            padding: 5% 8%;
+            padding: 4vw 6vw;
             color: #3a3530;
             line-height: 2.2;
             overflow-y: auto;
@@ -31,52 +31,57 @@
         }
 
         h1 {
-            font-size: 35px;
+            font-size: 7vw;
+            max-font-size: 40px;
             color: #cc0000;
-            margin-bottom: 50px;
+            margin-bottom: 5vw;
             letter-spacing: 4px;
             text-align: center;
             border-bottom: 2px solid #c4b8a8;
-            padding-bottom: 25px;
+            padding-bottom: 3vw;
         }
 
         h2 {
-            font-size: 30px;
+            font-size: 6vw;
+            max-font-size: 32px;
             color: #4a3f35;
-            margin: 40px 0 20px;
+            margin: 6vw 0 3vw;
             letter-spacing: 2px;
-            padding-left: 15px;
+            padding-left: 2vw;
             border-left: 4px solid #8b7355;
         }
 
         p {
-            font-size: 30px;
-            margin-bottom: 15px;
+            font-size: 5.5vw;
+            max-font-size: 28px;
+            margin-bottom: 2vw;
             text-align: justify;
         }
 
         .download-section {
             text-align: center;
-            margin: 60px 0;
-            padding: 30px;
+            margin: 8vw 0;
+            padding: 5vw;
             background: #e8e0d4;
-            border-radius: 12px;
+            border-radius: 2vw;
             border: 2px solid #c4b8a8;
         }
 
         .download-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 20px 45px;
+            gap: 2vw;
+            padding: 3vw 8vw;
             background: linear-gradient(135deg, #5a4a3a 0%, #4a3f35 100%);
             color: #f0ebe0;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 24px;
+            border-radius: 1.5vw;
+            font-size: 5vw;
+            max-font-size: 24px;
             letter-spacing: 2px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(90, 74, 58, 0.3);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .download-btn:hover {
@@ -86,11 +91,12 @@
         }
 
         .download-btn:active {
-            transform: translateY(0);
+            transform: scale(0.95);
         }
 
         .download-icon {
-            font-size: 28px;
+            font-size: 6vw;
+            max-font-size: 28px;
         }
 
         .download-text {
@@ -98,48 +104,67 @@
         }
 
         .download-tip {
-            margin-top: 20px;
-            font-size: 20px;
+            margin-top: 3vw;
+            font-size: 4vw;
+            max-font-size: 18px;
             color: #6a5f55;
         }
 
-        @media (max-width: 600px) {
+        @media (min-width: 600px) {
             body {
-                padding: 6% 8%;
-                line-height: 2.0;
+                padding: 3% 5%;
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 35px;
                 margin-bottom: 40px;
-                padding-bottom: 20px;
+                padding-bottom: 25px;
             }
 
             h2 {
-                font-size: 28px;
-                margin: 35px 0 18px;
+                font-size: 30px;
+                margin: 40px 0 20px;
             }
 
             p {
+                font-size: 30px;
+            }
+
+            .download-section {
+                margin: 60px 0;
+                padding: 30px;
+            }
+
+            .download-btn {
+                padding: 20px 45px;
+                font-size: 24px;
+            }
+
+            .download-icon {
                 font-size: 28px;
+            }
+
+            .download-tip {
+                font-size: 20px;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                padding: 7% 9%;
+                padding: 5vw 7vw;
+                line-height: 2.0;
             }
 
             h1 {
-                font-size: 28px;
+                font-size: 6.5vw;
             }
 
             h2 {
-                font-size: 26px;
+                font-size: 5.5vw;
             }
 
             p {
-                font-size: 26px;
+                font-size: 5vw;
             }
         }
     </style>

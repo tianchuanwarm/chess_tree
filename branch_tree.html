@@ -2,13 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
     <title>枝干图_6_红过河车升河口炮式</title>
                 <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
 
     
 </head>
-<body >
-    <div id="2600a4a1f18b4bbca2b2066bef215010" class="chart-container" style="width:1200px; height:800px; "></div>
+<body style="margin: 0; padding: 0; height: 100%; overflow: hidden; background: #f5f0e8;">
+    <div id="2600a4a1f18b4bbca2b2066bef215010" class="chart-container" style="width:100%; height:100%; position:absolute; top:0; left:0;"></div>
     <script>
         var chart_2600a4a1f18b4bbca2b2066bef215010 = echarts.init(
             document.getElementById('2600a4a1f18b4bbca2b2066bef215010'), 'white', {renderer: 'canvas'});
@@ -1103,6 +1104,22 @@
     ]
 };
         chart_2600a4a1f18b4bbca2b2066bef215010.setOption(option_2600a4a1f18b4bbca2b2066bef215010);
+
+        function resizeChart() {
+            var container = document.getElementById('2600a4a1f18b4bbca2b2066bef215010');
+            if (container) {
+                container.style.width = window.innerWidth + 'px';
+                container.style.height = window.innerHeight + 'px';
+                chart_2600a4a1f18b4bbca2b2066bef215010.resize();
+            }
+        }
+
+        window.addEventListener('resize', resizeChart);
+        window.addEventListener('orientationchange', function() {
+            setTimeout(resizeChart, 300);
+        });
+
+        setTimeout(resizeChart, 100);
     </script>
 </body>
 </html>

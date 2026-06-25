@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>布局树推演</title>
@@ -24,7 +24,9 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 60px;
+            height: 8vw;
+            max-height: 70px;
+            min-height: 50px;
             background: linear-gradient(135deg, #2c2c2c 0%, #3d3d3d 50%, #2c2c2c 100%);
             color: #f0ebe0;
             display: flex;
@@ -36,19 +38,23 @@
         }
 
         .header h1 {
-            font-size: 22px;
+            font-size: 5vw;
+            min-font-size: 16px;
+            max-font-size: 24px;
             font-weight: normal;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             margin: 0;
         }
 
         .nav-bar {
             position: absolute;
-            top: 60px;
+            top: 8vw;
             left: 0;
             right: 0;
-            height: 50px;
+            height: 10vw;
+            max-height: 60px;
+            min-height: 45px;
             background: #e8e0d4;
             border-bottom: 2px solid #c4b8a8;
             display: flex;
@@ -63,13 +69,17 @@
             justify-content: center;
             cursor: pointer;
             color: #4a3f35;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             border-bottom: 3px solid transparent;
         }
 
         .nav-item:hover {
             background: #d4c8b8;
             color: #2c241c;
+        }
+
+        .nav-item:active {
+            transform: scale(0.95);
         }
 
         .nav-item.active {
@@ -80,17 +90,21 @@
         }
 
         .nav-item .icon {
-            font-size: 18px;
+            font-size: 5vw;
+            min-font-size: 16px;
+            max-font-size: 20px;
             margin-bottom: 2px;
         }
 
         .nav-item .label {
-            font-size: 13px;
+            font-size: 3.5vw;
+            min-font-size: 12px;
+            max-font-size: 14px;
         }
 
         .content {
             position: absolute;
-            top: 110px;
+            top: 18vw;
             left: 0;
             right: 0;
             bottom: 0;
@@ -104,38 +118,32 @@
             border: none;
         }
 
-        @media (max-width: 600px) {
-            .header {
-                height: 50px;
-            }
-            
+        @media (max-width: 768px) {
             .header h1 {
-                font-size: 18px;
-                letter-spacing: 4px;
-            }
-
-            .nav-bar {
-                top: 50px;
-                height: 45px;
+                font-size: 4.5vw;
             }
 
             .nav-item .icon {
-                font-size: 16px;
+                font-size: 4.5vw;
             }
 
             .nav-item .label {
-                font-size: 12px;
-            }
-
-            .content {
-                top: 95px;
+                font-size: 3vw;
             }
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 480px) {
             .header h1 {
-                font-size: 16px;
+                font-size: 4vw;
                 letter-spacing: 2px;
+            }
+
+            .nav-item .icon {
+                font-size: 4vw;
+            }
+
+            .nav-item .label {
+                font-size: 2.8vw;
             }
         }
     </style>
@@ -148,7 +156,7 @@
     <div class="nav-bar">
         <div class="nav-item active" onclick="navigateTo(this, 'welcome.html')">
             <span class="icon">📖</span>
-            <span class="label">学习方法</span>
+            <span class="label">布局树简介</span>
         </div>
         <div class="nav-item" onclick="navigateTo(this, 'tuiyan_tree.html')">
             <span class="icon">🌿</span>
