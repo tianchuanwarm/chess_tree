@@ -11,21 +11,26 @@
             box-sizing: border-box;
         }
 
+        html {
+            height: 100%;
+        }
+
         body {
             font-family: "楷体", "KaiTi", "STKaiti", "宋体", serif;
             background: #f5f0e8;
             background-image: 
                 radial-gradient(ellipse at 20% 80%, rgba(139, 119, 101, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(100, 80, 60, 0.06) 0%, transparent 50%);
-            min-height: 100vh;
+            height: 100%;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .header {
             background: linear-gradient(135deg, #2c2c2c 0%, #3d3d3d 50%, #2c2c2c 100%);
             color: #f0ebe0;
-            padding: 18px 40px;
+            padding: 14px 20px;
             text-align: center;
             border-bottom: 3px solid #5a4a3a;
             position: relative;
@@ -44,71 +49,53 @@
         }
 
         .header h1 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: normal;
-            letter-spacing: 8px;
+            letter-spacing: 6px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .header .subtitle {
-            font-size: 14px;
-            margin-top: 6px;
-            opacity: 0.7;
-            letter-spacing: 4px;
-        }
-
-        .main-container {
-            flex: 1;
-            display: flex;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            width: 220px;
+        .nav-bar {
             background: #e8e0d4;
-            border-right: 2px solid #c4b8a8;
-            padding: 20px 0;
-            overflow-y: auto;
+            border-bottom: 2px solid #c4b8a8;
             flex-shrink: 0;
         }
 
-        .sidebar-title {
-            padding: 0 20px 12px;
-            font-size: 16px;
-            color: #4a3f35;
-            border-bottom: 1px solid #c4b8a8;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+        .nav-items {
+            display: flex;
+            justify-content: center;
         }
 
         .nav-item {
-            display: block;
-            padding: 14px 24px;
+            flex: 1;
+            max-width: 200px;
+            padding: 14px 10px;
+            text-align: center;
             color: #4a3f35;
-            text-decoration: none;
             font-size: 16px;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-            position: relative;
             cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .nav-item:hover {
             background: #d4c8b8;
             color: #2c241c;
-            border-left-color: #8b7355;
         }
 
         .nav-item.active {
             background: #c9bdad;
             color: #2c241c;
-            border-left-color: #5a4a3a;
             font-weight: bold;
+            border-bottom-color: #5a4a3a;
         }
 
         .nav-item .icon {
-            margin-right: 10px;
-            opacity: 0.8;
+            font-size: 18px;
         }
 
         .content {
@@ -124,120 +111,31 @@
             border: none;
         }
 
-        .ink-decoration {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.08;
-        }
-
-        .ink-decoration.top-left {
-            top: 60px;
-            left: 10px;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #2c2c2c 0%, transparent 70%);
-        }
-
-        .ink-decoration.bottom-right {
-            bottom: 20px;
-            right: 30px;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #3d3d3d 0%, transparent 70%);
-        }
-
-        .mobile-nav {
-            display: none;
-            background: #e8e0d4;
-            border-bottom: 2px solid #c4b8a8;
-            padding: 0;
-            flex-shrink: 0;
-        }
-
-        .mobile-nav-items {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .mobile-nav-item {
-            flex: 1;
-            padding: 12px 0;
-            text-align: center;
-            color: #4a3f35;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .mobile-nav-item.active {
-            background: #c9bdad;
-            color: #2c241c;
-            font-weight: bold;
-            border-bottom-color: #5a4a3a;
-        }
-
-        .mobile-nav-item .icon {
-            display: block;
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .mobile-nav-item .label {
-            display: block;
-            font-size: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 12px 20px;
-            }
-            
+        @media (max-width: 600px) {
             .header h1 {
                 font-size: 18px;
-                letter-spacing: 3px;
+                letter-spacing: 4px;
             }
 
-            .header .subtitle {
-                font-size: 12px;
-                letter-spacing: 2px;
+            .nav-item {
+                padding: 12px 5px;
+                font-size: 14px;
+                gap: 6px;
             }
 
-            .sidebar {
-                display: none;
-            }
-
-            .mobile-nav {
-                display: block;
-            }
-
-            .main-container {
-                flex-direction: column;
-            }
-
-            .content {
-                height: calc(100vh - 140px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
+            .nav-item .icon {
                 font-size: 16px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .header h1 {
+                font-size: 15px;
                 letter-spacing: 2px;
             }
 
-            .mobile-nav-item .icon {
-                font-size: 18px;
-            }
-
-            .mobile-nav-item .label {
-                font-size: 11px;
-            }
-
-            .content {
-                height: calc(100vh - 120px);
+            .nav-item {
+                font-size: 12px;
             }
         }
     </style>
@@ -245,53 +143,29 @@
 <body>
     <div class="header">
         <h1>布 局 树 推 演</h1>
-        <div class="subtitle">—— 水墨之间，棋理自现 ——</div>
     </div>
 
-    <div class="mobile-nav">
-        <div class="mobile-nav-items">
-            <div class="mobile-nav-item active" onclick="navigateTo(this, 'welcome.html')">
-                <span class="icon">📖</span>
-                <span class="label">学习方法</span>
-            </div>
-            <div class="mobile-nav-item" onclick="navigateTo(this, 'tuiyan_tree.html')">
-                <span class="icon">🌿</span>
-                <span class="label">推演图</span>
-            </div>
-            <div class="mobile-nav-item" onclick="navigateTo(this, 'branch_tree.html')">
-                <span class="icon">🎋</span>
-                <span class="label">枝干图</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="main-container">
-        <div class="sidebar">
-            <div class="sidebar-title">导 航</div>
-            <div class="nav-item active" data-page="welcome.html" onclick="navigateTo(this, 'welcome.html')">
+    <div class="nav-bar">
+        <div class="nav-items">
+            <div class="nav-item active" onclick="navigateTo(this, 'welcome.html')">
                 <span class="icon">📖</span>学习方法
             </div>
-            <div class="nav-item" data-page="tuiyan_tree.html" onclick="navigateTo(this, 'tuiyan_tree.html')">
+            <div class="nav-item" onclick="navigateTo(this, 'tuiyan_tree.html')">
                 <span class="icon">🌿</span>推演图
             </div>
-            <div class="nav-item" data-page="branch_tree.html" onclick="navigateTo(this, 'branch_tree.html')">
+            <div class="nav-item" onclick="navigateTo(this, 'branch_tree.html')">
                 <span class="icon">🎋</span>枝干图
             </div>
         </div>
+    </div>
 
-        <div class="content">
-            <div class="ink-decoration top-left"></div>
-            <div class="ink-decoration bottom-right"></div>
-            <iframe id="content-frame" name="content-frame" src="welcome.html"></iframe>
-        </div>
+    <div class="content">
+        <iframe id="content-frame" src="welcome.html"></iframe>
     </div>
 
     <script>
         function navigateTo(element, page) {
             document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelectorAll('.mobile-nav-item').forEach(item => {
                 item.classList.remove('active');
             });
             element.classList.add('active');

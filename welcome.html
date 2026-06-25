@@ -17,39 +17,41 @@
             background-image: 
                 radial-gradient(ellipse at 20% 80%, rgba(139, 119, 101, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(100, 80, 60, 0.06) 0%, transparent 50%);
-            min-height: 100vh;
-            padding: 40px 60px;
+            height: 100%;
+            padding: 3% 5%;
             color: #3a3530;
             line-height: 1.8;
+            overflow-y: auto;
         }
 
         .container {
             max-width: 900px;
+            width: 100%;
             margin: 0 auto;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 24px;
             color: #2c241c;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             letter-spacing: 4px;
             text-align: center;
             border-bottom: 2px solid #c4b8a8;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
 
         h2 {
-            font-size: 20px;
+            font-size: 18px;
             color: #4a3f35;
-            margin: 35px 0 18px;
+            margin: 28px 0 15px;
             letter-spacing: 2px;
-            padding-left: 15px;
+            padding-left: 12px;
             border-left: 4px solid #8b7355;
         }
 
         p {
-            font-size: 16px;
-            margin-bottom: 15px;
+            font-size: 15px;
+            margin-bottom: 12px;
             text-align: justify;
         }
 
@@ -141,6 +143,73 @@
             margin-top: 15px;
             font-size: 14px;
             color: #6a5f55;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 2% 3%;
+                line-height: 1.6;
+            }
+
+            h1 {
+                font-size: 18px;
+                letter-spacing: 2px;
+                margin-bottom: 18px;
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 15px;
+                margin: 20px 0 12px;
+                padding-left: 10px;
+            }
+
+            p {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            li {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            .highlight {
+                padding: 12px 15px;
+                margin: 15px 0;
+            }
+
+            .download-section {
+                margin: 25px 0;
+                padding: 18px;
+            }
+
+            .download-btn {
+                padding: 12px 25px;
+                font-size: 15px;
+            }
+
+            .download-icon {
+                font-size: 18px;
+            }
+
+            .download-tip {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 15px;
+            }
+
+            h2 {
+                font-size: 13px;
+            }
+
+            p, li {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
