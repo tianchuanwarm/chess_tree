@@ -2,84 +2,69 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>布局树推演</title>
     <style>
-        * {
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            height: 100%;
-        }
-
-        body {
+            overflow: hidden;
             font-family: "楷体", "KaiTi", "STKaiti", "宋体", serif;
             background: #f5f0e8;
             background-image: 
                 radial-gradient(ellipse at 20% 80%, rgba(139, 119, 101, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(100, 80, 60, 0.06) 0%, transparent 50%);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #2c2c2c 0%, #3d3d3d 50%, #2c2c2c 100%);
-            color: #f0ebe0;
-            padding: 14px 20px;
-            text-align: center;
-            border-bottom: 3px solid #5a4a3a;
-            position: relative;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-            flex-shrink: 0;
-        }
-
-        .header::before {
-            content: "";
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #8b7355, transparent);
+            height: 60px;
+            background: linear-gradient(135deg, #2c2c2c 0%, #3d3d3d 50%, #2c2c2c 100%);
+            color: #f0ebe0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid #5a4a3a;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
         }
 
         .header h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: normal;
             letter-spacing: 6px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
         }
 
         .nav-bar {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 50px;
             background: #e8e0d4;
             border-bottom: 2px solid #c4b8a8;
-            flex-shrink: 0;
-        }
-
-        .nav-items {
             display: flex;
-            justify-content: center;
+            z-index: 100;
         }
 
         .nav-item {
             flex: 1;
-            max-width: 200px;
-            padding: 14px 10px;
-            text-align: center;
-            color: #4a3f35;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            cursor: pointer;
+            color: #4a3f35;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
         }
 
         .nav-item:hover {
@@ -96,11 +81,19 @@
 
         .nav-item .icon {
             font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .nav-item .label {
+            font-size: 13px;
         }
 
         .content {
-            flex: 1;
-            position: relative;
+            position: absolute;
+            top: 110px;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: #f5f0e8;
             overflow: hidden;
         }
@@ -112,30 +105,37 @@
         }
 
         @media (max-width: 600px) {
+            .header {
+                height: 50px;
+            }
+            
             .header h1 {
                 font-size: 18px;
                 letter-spacing: 4px;
             }
 
-            .nav-item {
-                padding: 12px 5px;
-                font-size: 14px;
-                gap: 6px;
+            .nav-bar {
+                top: 50px;
+                height: 45px;
             }
 
             .nav-item .icon {
                 font-size: 16px;
             }
+
+            .nav-item .label {
+                font-size: 12px;
+            }
+
+            .content {
+                top: 95px;
+            }
         }
 
         @media (max-width: 400px) {
             .header h1 {
-                font-size: 15px;
+                font-size: 16px;
                 letter-spacing: 2px;
-            }
-
-            .nav-item {
-                font-size: 12px;
             }
         }
     </style>
@@ -146,16 +146,17 @@
     </div>
 
     <div class="nav-bar">
-        <div class="nav-items">
-            <div class="nav-item active" onclick="navigateTo(this, 'welcome.html')">
-                <span class="icon">📖</span>学习方法
-            </div>
-            <div class="nav-item" onclick="navigateTo(this, 'tuiyan_tree.html')">
-                <span class="icon">🌿</span>推演图
-            </div>
-            <div class="nav-item" onclick="navigateTo(this, 'branch_tree.html')">
-                <span class="icon">🎋</span>枝干图
-            </div>
+        <div class="nav-item active" onclick="navigateTo(this, 'welcome.html')">
+            <span class="icon">📖</span>
+            <span class="label">学习方法</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo(this, 'tuiyan_tree.html')">
+            <span class="icon">🌿</span>
+            <span class="label">推演图</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo(this, 'branch_tree.html')">
+            <span class="icon">🎋</span>
+            <span class="label">枝干图</span>
         </div>
     </div>
 

@@ -2,13 +2,13 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>欢迎</title>
     <style>
-        * {
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
@@ -17,11 +17,11 @@
             background-image: 
                 radial-gradient(ellipse at 20% 80%, rgba(139, 119, 101, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(100, 80, 60, 0.06) 0%, transparent 50%);
-            height: 100%;
             padding: 3% 5%;
             color: #3a3530;
             line-height: 1.8;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .container {
@@ -31,35 +31,35 @@
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             color: #2c241c;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             letter-spacing: 4px;
             text-align: center;
             border-bottom: 2px solid #c4b8a8;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 22px;
             color: #4a3f35;
-            margin: 28px 0 15px;
+            margin: 35px 0 20px;
             letter-spacing: 2px;
-            padding-left: 12px;
+            padding-left: 15px;
             border-left: 4px solid #8b7355;
         }
 
         p {
-            font-size: 15px;
-            margin-bottom: 12px;
+            font-size: 18px;
+            margin-bottom: 15px;
             text-align: justify;
         }
 
         .highlight {
             background: #e8e0d4;
-            padding: 15px 20px;
+            padding: 18px 22px;
             border-radius: 8px;
-            margin: 20px 0;
+            margin: 25px 0;
             border: 1px solid #c4b8a8;
         }
 
@@ -68,39 +68,18 @@
         }
 
         ul {
-            margin: 15px 0 15px 30px;
+            margin: 18px 0 18px 35px;
         }
 
         li {
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-
-        .ink-mark {
-            position: fixed;
-            bottom: 30px;
-            right: 40px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(60, 50, 40, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #c4b8a8;
-            font-size: 14px;
-            color: #6a5f55;
-            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-size: 18px;
         }
 
         .download-section {
             text-align: center;
-            margin: 40px 0;
-            padding: 25px;
+            margin: 45px 0;
+            padding: 30px;
             background: #e8e0d4;
             border-radius: 12px;
             border: 2px solid #c4b8a8;
@@ -109,13 +88,13 @@
         .download-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 15px 35px;
+            gap: 12px;
+            padding: 18px 40px;
             background: linear-gradient(135deg, #5a4a3a 0%, #4a3f35 100%);
             color: #f0ebe0;
             text-decoration: none;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 20px;
             letter-spacing: 2px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(90, 74, 58, 0.3);
@@ -132,7 +111,7 @@
         }
 
         .download-icon {
-            font-size: 22px;
+            font-size: 24px;
         }
 
         .download-text {
@@ -140,75 +119,114 @@
         }
 
         .download-tip {
-            margin-top: 15px;
-            font-size: 14px;
+            margin-top: 18px;
+            font-size: 16px;
             color: #6a5f55;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 4% 6%;
+                line-height: 1.9;
+            }
+
+            h1 {
+                font-size: 24px;
+                letter-spacing: 3px;
+                margin-bottom: 25px;
+                padding-bottom: 15px;
+            }
+
+            h2 {
+                font-size: 20px;
+                margin: 30px 0 18px;
+                padding-left: 12px;
+            }
+
+            p {
+                font-size: 17px;
+                margin-bottom: 14px;
+            }
+
+            li {
+                font-size: 17px;
+                margin-bottom: 14px;
+            }
+
+            .highlight {
+                padding: 15px 18px;
+                margin: 20px 0;
+            }
+
+            .download-section {
+                margin: 35px 0;
+                padding: 22px;
+            }
+
+            .download-btn {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+
+            .download-icon {
+                font-size: 22px;
+            }
+
+            .download-tip {
+                font-size: 15px;
+            }
         }
 
         @media (max-width: 600px) {
             body {
-                padding: 2% 3%;
-                line-height: 1.6;
+                padding: 5% 7%;
             }
 
             h1 {
-                font-size: 18px;
-                letter-spacing: 2px;
-                margin-bottom: 18px;
-                padding-bottom: 10px;
+                font-size: 22px;
             }
 
             h2 {
-                font-size: 15px;
-                margin: 20px 0 12px;
-                padding-left: 10px;
+                font-size: 19px;
             }
 
             p {
-                font-size: 13px;
-                margin-bottom: 10px;
+                font-size: 16px;
             }
 
             li {
-                font-size: 13px;
-                margin-bottom: 10px;
-            }
-
-            .highlight {
-                padding: 12px 15px;
-                margin: 15px 0;
-            }
-
-            .download-section {
-                margin: 25px 0;
-                padding: 18px;
-            }
-
-            .download-btn {
-                padding: 12px 25px;
-                font-size: 15px;
-            }
-
-            .download-icon {
-                font-size: 18px;
-            }
-
-            .download-tip {
-                font-size: 12px;
+                font-size: 16px;
             }
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 480px) {
+            body {
+                padding: 6% 8%;
+                line-height: 2.0;
+            }
+
             h1 {
-                font-size: 15px;
+                font-size: 20px;
+                letter-spacing: 2px;
             }
 
             h2 {
-                font-size: 13px;
+                font-size: 18px;
+                margin: 25px 0 15px;
             }
 
-            p, li {
-                font-size: 12px;
+            p {
+                font-size: 16px;
+            }
+
+            li {
+                font-size: 16px;
+                margin-left: -10px;
+            }
+
+            .download-btn {
+                padding: 14px 25px;
+                font-size: 16px;
             }
         }
     </style>
@@ -268,12 +286,6 @@
             </a>
             <p class="download-tip">推荐使用福昕PDF阅读器打开，支持大纲搜索功能</p>
         </div>
-
-        <div class="footer">
-            —— 水墨之间，棋理自现 ——
-        </div>
     </div>
-
-    <div class="ink-mark"></div>
 </body>
 </html>
