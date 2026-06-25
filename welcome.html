@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>欢迎</title>
+    <title>布局树介绍</title>
     <style>
         html, body {
             height: 100%;
@@ -17,9 +17,9 @@
             background-image: 
                 radial-gradient(ellipse at 20% 80%, rgba(139, 119, 101, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(100, 80, 60, 0.06) 0%, transparent 50%);
-            padding: 3% 5%;
+            padding: 5% 8%;
             color: #3a3530;
-            line-height: 1.8;
+            line-height: 2.2;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
@@ -31,54 +31,33 @@
         }
 
         h1 {
-            font-size: 28px;
-            color: #2c241c;
-            margin-bottom: 30px;
+            font-size: 35px;
+            color: #cc0000;
+            margin-bottom: 50px;
             letter-spacing: 4px;
             text-align: center;
             border-bottom: 2px solid #c4b8a8;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
         }
 
         h2 {
-            font-size: 22px;
+            font-size: 30px;
             color: #4a3f35;
-            margin: 35px 0 20px;
+            margin: 40px 0 20px;
             letter-spacing: 2px;
             padding-left: 15px;
             border-left: 4px solid #8b7355;
         }
 
         p {
-            font-size: 18px;
+            font-size: 30px;
             margin-bottom: 15px;
             text-align: justify;
         }
 
-        .highlight {
-            background: #e8e0d4;
-            padding: 18px 22px;
-            border-radius: 8px;
-            margin: 25px 0;
-            border: 1px solid #c4b8a8;
-        }
-
-        .highlight strong {
-            color: #5a4a3a;
-        }
-
-        ul {
-            margin: 18px 0 18px 35px;
-        }
-
-        li {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
         .download-section {
             text-align: center;
-            margin: 45px 0;
+            margin: 60px 0;
             padding: 30px;
             background: #e8e0d4;
             border-radius: 12px;
@@ -89,12 +68,12 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 18px 40px;
+            padding: 20px 45px;
             background: linear-gradient(135deg, #5a4a3a 0%, #4a3f35 100%);
             color: #f0ebe0;
             text-decoration: none;
             border-radius: 8px;
-            font-size: 20px;
+            font-size: 24px;
             letter-spacing: 2px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(90, 74, 58, 0.3);
@@ -111,7 +90,7 @@
         }
 
         .download-icon {
-            font-size: 24px;
+            font-size: 28px;
         }
 
         .download-text {
@@ -119,165 +98,64 @@
         }
 
         .download-tip {
-            margin-top: 18px;
-            font-size: 16px;
+            margin-top: 20px;
+            font-size: 20px;
             color: #6a5f55;
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 4% 6%;
-                line-height: 1.9;
-            }
-
-            h1 {
-                font-size: 24px;
-                letter-spacing: 3px;
-                margin-bottom: 25px;
-                padding-bottom: 15px;
-            }
-
-            h2 {
-                font-size: 20px;
-                margin: 30px 0 18px;
-                padding-left: 12px;
-            }
-
-            p {
-                font-size: 17px;
-                margin-bottom: 14px;
-            }
-
-            li {
-                font-size: 17px;
-                margin-bottom: 14px;
-            }
-
-            .highlight {
-                padding: 15px 18px;
-                margin: 20px 0;
-            }
-
-            .download-section {
-                margin: 35px 0;
-                padding: 22px;
-            }
-
-            .download-btn {
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-
-            .download-icon {
-                font-size: 22px;
-            }
-
-            .download-tip {
-                font-size: 15px;
-            }
-        }
-
         @media (max-width: 600px) {
-            body {
-                padding: 5% 7%;
-            }
-
-            h1 {
-                font-size: 22px;
-            }
-
-            h2 {
-                font-size: 19px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-            li {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
             body {
                 padding: 6% 8%;
                 line-height: 2.0;
             }
 
             h1 {
-                font-size: 20px;
-                letter-spacing: 2px;
+                font-size: 32px;
+                margin-bottom: 40px;
+                padding-bottom: 20px;
             }
 
             h2 {
-                font-size: 18px;
-                margin: 25px 0 15px;
+                font-size: 28px;
+                margin: 35px 0 18px;
             }
 
             p {
-                font-size: 16px;
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 7% 9%;
             }
 
-            li {
-                font-size: 16px;
-                margin-left: -10px;
+            h1 {
+                font-size: 28px;
             }
 
-            .download-btn {
-                padding: 14px 25px;
-                font-size: 16px;
+            h2 {
+                font-size: 26px;
+            }
+
+            p {
+                font-size: 26px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>布局树三件套 · 学习方法</h1>
+        <h1>学习象棋新工具 布局树三件套</h1>
 
-        <h2>一、你的学习方法，和"看视频""打谱软件"有什么本质不同？</h2>
-        <p>大多数棋友的学习路径无非两种：</p>
-        <ul>
-            <li><strong>看视频：</strong>跟着老师的讲解走一遍，当时觉得懂了，关上视频就模糊。想复习？只能重刷视频，拖拽进度条如大海捞针。</li>
-            <li><strong>打谱软件：</strong>复习时同样存在遗忘的知识点无法定位的问题，不知道哪里会、哪里不会，只能从头把棋谱点一遍来复习。</li>
-        </ul>
-        <div class="highlight">
-            <p>这两种方式的<strong>共同痛点</strong>是：知识是"流"过去的，没有在脑子里"扎下根"。而且复习没有锚点——你不知道自己要复习的知识点在哪一页、哪一个分支。</p>
-        </div>
+        <h2>一、一步一图：精读深研</h2>
+        <p>每步一图，适合逐着细读。关键局面先思考再往下看，效果远胜直接翻答案。</p>
 
-        <h2>二、精准复习——告别"学了就忘"的终极方案</h2>
-        <p>复习的最大难题不是"不想复习"，而是<strong>"不知道从哪里复习"</strong>。</p>
-        <ul>
-            <li><strong>看视频：</strong>你隐约记得某个变化在第几集左右，但具体在哪一分哪一秒？拖来拖去，耐心耗尽。</li>
-            <li><strong>打谱软件：</strong>你记得有个分支很重要，但它在哪个节点下面？只能从头点开一个个节点。</li>
-        </ul>
-        <p>布局树三件套给出了两个解决方案：</p>
-        <div class="highlight">
-            <p><strong>1. 页码锚点法</strong><br>
-            一步一图棋谱（PDF格式）每一页都有清晰的页码。学习时，遇到不熟悉的或者需要反复消化的页面，记下页码或截图。下次复习，直接翻开那一页。你的笔记就是你的"复习地图"，永不丢失。</p>
-            <p><strong>2. 秒速搜索法</strong><br>
-            推演图中，如果对某个节点有疑问，不用翻视频——打开一步一图棋谱，输入棋盘上任意一两行的FEN代码，即刻定位到目标局面。再也不用大海捞针。</p>
-        </div>
-        <p><strong>精准复习 = 只复习不会的，不重复会的。</strong> 这是高效学习的核心。</p>
+        <h2>二、推演图：练脑内棋盘</h2>
+        <p>纯文字棋谱，须在脑中构建局面——这正是"棋盘可视化"能力的训练，是棋力进阶的核心。</p>
 
-        <h2>三、布局树三件套的学习方法，优点在哪里？</h2>
-        <p>这个方法的核心，不是"让你多看几遍"，而是<strong>改变你与知识互动的方式</strong>。</p>
-        <ul>
-            <li><strong>优点一：最接近实战，把"被动看"变成"主动想"</strong><br>
-            每一步棋都单独成页。面对棋图，你不能只是"看"——你必须停下来，分析形势，推演双方着法，做出自己的判断，然后再对照大师的着法。这就是苏格拉底式的自问自答：知识不是被灌输的，而是被你"生"出来的。</li>
-            <li><strong>优点二：训练"棋盘可视化"核心能力</strong><br>
-            推演图以文字棋步呈现，要求你在脑海中构建棋局。这正是高手与业余爱好者的分水岭——不看棋盘也能走棋的能力。用推演图复习一遍，等于同时完成了布局记忆和心算训练。</li>
-            <li><strong>优点三：从"碎片"到"网络"，建立整体认知</strong><br>
-            枝干图只保留有分支的关键节点，去繁就简。布局的庞大内容，瞬间变成一棵清晰的"知识树"。你一眼就能看清：主干是什么，岔路有几条，各个变化之间是什么关系。这种结构化知识，抗遗忘能力极强。</li>
-            <li><strong>优点四：可批注、可记录、进度可控</strong><br>
-            在大尺寸墨水屏电纸书上使用，随时截图、手写批注。学了多少页，清清楚楚。今天学到第28页，明天翻开接着来。学习进度永不丢失。</li>
-        </ul>
-
-        <h2>四、如何使用，效果最佳？</h2>
-        <div class="highlight">
-            <p><strong>精读：</strong>在一步一图棋谱上细读一个分支，每页停下来思考、批注、提问。<br>
-            <strong>理解比记忆强100倍</strong>，没有经过苦苦思索的过程，得不到真正的知识。</p>
-        </div>
+        <h2>三、枝干图：抓整体脉络</h2>
+        <p>只保留分支关键节点，删繁就简，突出布局主干。</p>
 
         <div class="download-section">
             <a href="yibuyitu.pdf" download class="download-btn">
